@@ -65,11 +65,11 @@
                 :space-evenly "true"
                 :spacing "8"
             (button :class "prev"
-                    :onclick "playerctl --player=ncspot previous" "")
+                    :onclick "playerctl --player=spotify previous" "")
             (button :class "pause"
-                    :onclick "playerctl --player=ncspot play-pause" "")
+                    :onclick "playerctl --player=spotify play-pause" "")
             (button :class "next"
-                    :onclick "playerctl --player=ncspot next" "")))
+                    :onclick "playerctl --player=spotify next" "")))
       (box :class "parentbox-vert"
             :orientation "horizontal"
         (label  :text {music != "" ? "${music}" : ""}

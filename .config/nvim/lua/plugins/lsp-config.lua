@@ -9,7 +9,9 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
-      require("mason-lspconfig").setup()
+      require("mason-lspconfig").setup({
+        ensure_installed = { "clangd", "lua_ls" },
+      })
     end
   },
   {
@@ -17,6 +19,16 @@ return {
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require("lspconfig")
+
+      -- C / C++
+      lspconfig.clangd.setup({
+        capabilities = capabilities,
+      })
+
+      -- Lua (útil para editar tu propia config de Neovim después)
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+      })
     end
   },
 }

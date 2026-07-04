@@ -14,9 +14,9 @@
 ;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;; Deflistens ;;;;;
-(deflisten music :initial "" "playerctl --player=ncspot --follow metadata --format '{{ title }}' || true")
-(deflisten artist :initial "" "playerctl --player=ncspot --follow metadata --format '{{ artist }}' || true")
-(deflisten current-music-cover :initial "" "playerctl --player=ncspot --follow metadata --format {{mpris:artUrl}}")
+(deflisten music :initial "" "playerctl --player=spotify --follow metadata --format '{{ title }}' || true")
+(deflisten artist :initial "" "playerctl --player=spotify --follow metadata --format '{{ artist }}' || true")
+(deflisten current-music-cover :initial "" "playerctl --player=spotify --follow metadata --format {{mpris:artUrl}}")
 ;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;; Defpolls ;;;;;

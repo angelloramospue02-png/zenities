@@ -19,3 +19,15 @@ wallpapers/preview-*.jpg
 # Zsh
 .zshrc
 .zshenv
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# General
+*.log

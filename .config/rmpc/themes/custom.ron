@@ -1,0 +1,23 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    default_album_art_path: None,
+    format_tag_separator: " | ",
+    browser_column_widths: [20, 38, 42],
+
+    background_color: "#181818",
+    text_color: "#F1F1F1",
+    header_background_color: "#181818",
+    modal_background_color: "#181818",
+    modal_backdrop: false,
+
+    preview_label_style: (fg: "#D5FFE4"),
+    preview_metadata_group_style: (fg: "#D5FFE4", modifiers: "Bold"),
+
+    highlighted_item_style: (fg: "#98D6B3", modifiers: "Bold"),
+    current_item_style: (fg: "#181818", bg: "#3C717C", modifiers: "Bold"),
+
+    borders_style: (fg: "#638E91"),
+    highlight_border_style: (fg: "#3C717C"),
+)

@@ -184,6 +184,12 @@ setup_shell() {
     run_loader "Changing Default Shell to Zsh" "echo '$PASSWORD' | sudo -S chsh -s /usr/bin/zsh $USER"
 }
 
+setup_mpd() {
+    run_loader "Creando configuracion de MPD" "mkdir -p ~/.config/mpd/playlists"
+
+    run_loader "Habilitando servicio de MPD" "systemctl --user enable --now mpd"
+}
+
 # Password Initialization for Sudo
 clear
 echo "         • •"
@@ -206,7 +212,7 @@ done
 
 
 # Install necessary packages via pacman
-run_network "Syncing mirror & Installing base packages" "run_sudo pacman -Syu --needed --noconfirm base-devel rustup github-cli stow pamixer brightnessctl playerctl rofi-wayland hyprlock hypridle hyprpaper yazi neovim bottom networkmanager rustup zsh imagemagick acpi pavucontrol lua51 lua51-luarocks xdg-desktop-portal-hyprland xdg-desktop-portal-gtk gtk4 gtk3 qt6ct kvantum noto-fonts go matugen"
+run_network "Syncing mirror & Installing base packages" "run_sudo pacman -Syu --needed --noconfirm base-devel rustup github-cli stow pamixer brightnessctl playerctl rofi-wayland hyprlock hypridle hyprpaper yazi neovim bottom networkmanager rustup zsh imagemagick acpi pavucontrol lua51 lua51-luarocks xdg-desktop-portal-hyprland xdg-desktop-portal-gtk gtk4 gtk3 qt6ct kvantum noto-fonts go matugen mpd"
 
 # Install Rust toolchain
 run_network "Setting up Rust Toolchain" "rustup default stable"
@@ -221,7 +227,7 @@ run_loader  "Applying zenities dotfiles via Stow" "apply_dotfiles"
 install_yay
 
 # Install additional packages via yay
-run_network "Installing AUR Packages" "echo '$PASSWORD' | yay -S --needed --noconfirm --sudoloop fastfetch cmatrix cava ttf-iosevka otf-hermit-nerd gvfs dbus libdbusmenu-glib libdbusmenu-gtk3 gtk-layer-shell brave-bin zoxide eza fzf thefuck jq socat tmux nvm btop hyprshot bluez bluez-utils bluez-obex bluetuith python-gobject zsh-theme-powerlevel10k-git spotify"
+run_network "Installing AUR Packages" "echo '$PASSWORD' | yay -S --needed --noconfirm --sudoloop fastfetch cmatrix cava ttf-iosevka otf-hermit-nerd gvfs dbus libdbusmenu-glib libdbusmenu-gtk3 gtk-layer-shell brave-bin zoxide eza fzf thefuck jq socat tmux nvm btop hyprshot bluez bluez-utils bluez-obex bluetuith python-gobject zsh-theme-powerlevel10k-git rmpc"
 
 # Eww installation
 install_eww
@@ -237,6 +243,9 @@ setup_bluetooth
 
 # Change shell to zsh
 setup_shell
+
+# Setup MPD
+setup_mpd
 
 #Run Wallpaper and Color Initialization
 run_loader "Initializing Wallpaper & Colors" "bash $HOME/.config/eww/scripts/change-wallpaper.sh 7 -g" 

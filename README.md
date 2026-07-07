@@ -6,6 +6,48 @@
 Thank you so much for visiting my Hyprland rice. I'm relatively new to ricing, and while it's no where near perfect, I've put a lot of care into it. This rice is inspired by so many awesome people's work, though I regret I can't list everyone by name
 
 I hope you enjoy it, and feel free to use this rice!
+## Pendientes de verificar/configurar en el sistema real (post-instalación)
+
+### Antes de instalar (en Windows)
+- [ ] Reset de fábrica completo
+- [ ] Guardar/confirmar clave de recuperación de BitLocker nueva (o suspenderlo)
+- [ ] Desactivar Inicio rápido de nuevo (se resetea con el reset de fábrica)
+- [ ] Confirmar que el espacio "No asignado" sigue reservado para CachyOS
+- [ ] Desactivar Secure Boot en la BIOS (F2 al prender)
+
+### Durante la instalación
+- [ ] Elegir el entorno de escritorio más minimalista posible en el instalador (vamos a poner Hyprland + Zenities encima)
+- [ ] Confirmar resolución real con `hyprctl monitors` (esperado: 1920x1200)
+
+### Después de instalar CachyOS, antes de correr INSTALL.sh
+- [ ] Clonar el fork: `git clone https://github.com/TU_USUARIO/zenities`
+- [ ] Confirmar `/dev/dri/cardX` real con `ls /dev/dri/` y `lspci | grep VGA` para ajustar `AQ_DRM_DEVICES`
+
+### Después de correr INSTALL.sh
+- [ ] Correr `sudo sensors-detect --auto` y confirmar nombres reales de sensores AMD/CPU (ajustar si algo falla en widgets de eww)
+- [ ] Instalar plugin `borders-plus-plus` vía `hyprpm` (si se decide usar)
+- [ ] Confirmar wallpaper `3.jpg` se aplicó bien (o ajustar el índice en `INSTALL.sh` si no)
+- [ ] Correr `wal -i wallpapers/3.jpg -n` para previsualizar paleta antes de aplicar, si se quiere ajustar
+
+### Neovim
+- [ ] Abrir `nvim` una vez para que `lazy.nvim` descargue todos los plugins
+- [ ] Confirmar que Mason instaló `clangd`, `codelldb`, `java-debug-adapter`, `java-test` (correr `:Mason` para ver estado)
+- [ ] Probar `code_runner.nvim` con un archivo `.java` y uno `.c` (`<Espacio>rc`)
+- [ ] Probar debugger en C (`<Espacio>dt`, `<Espacio>dc`) con un binario compilado con `-g`
+- [ ] Probar debugger en Java (requiere abrir un proyecto con `pom.xml`)
+
+### Música
+- [ ] Confirmar `mpd` corriendo: `systemctl --user status mpd`
+- [ ] Copiar música local a `~/Music`
+- [ ] Correr `rmpc update` si la librería no aparece sola
+- [ ] Confirmar `rmpcd` expone MPRIS: `playerctl --list-all` (debería listar `rmpc`; si el nombre es distinto, ajustar `--player=` en los 4 archivos `.yuck`: `eww.yuck`, `bar.yuck`, `music-control.yuck`, `side-bar.yuck`)
+- [ ] Confirmar colores de `cmus` y `rmpc` se ven bien (ajustar códigos si algo no coincide)
+
+### Fastfetch
+- [ ] Confirmar que el logo ASCII de Zenities se ve bien proporcionado en la terminal
+
+### Flutter-tools
+- [ ] Dejado a propósito, sin acción necesaria
 
 ## Prerequisite
 You have to disable autogenerate on the `hyprland.conf`.

@@ -65,11 +65,11 @@
                 :space-evenly "true"
                 :spacing "8"
             (button :class "prev"
-                    :onclick "playerctl --player=spotify previous" "")
+                    :onclick "playerctl --player=rmpc previous" "")
             (button :class "pause"
-                    :onclick "playerctl --player=spotify play-pause" "")
+                    :onclick "playerctl --player=rmpc play-pause" "")
             (button :class "next"
-                    :onclick "playerctl --player=spotify next" "")))
+                    :onclick "playerctl --player=rmpc next" "")))
       (box :class "parentbox-vert"
             :orientation "horizontal"
         (label  :text {music != "" ? "${music}" : ""}

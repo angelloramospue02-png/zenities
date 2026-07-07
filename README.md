@@ -6,6 +6,7 @@
 Thank you so much for visiting my Hyprland rice. I'm relatively new to ricing, and while it's no where near perfect, I've put a lot of care into it. This rice is inspired by so many awesome people's work, though I regret I can't list everyone by name
 
 I hope you enjoy it, and feel free to use this rice!
+
 ## Pendientes de verificar/configurar en el sistema real (post-instalación)
 
 ### Antes de instalar (en Windows)

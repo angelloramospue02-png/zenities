@@ -148,6 +148,16 @@ install_eww() {
     run_loader "Cleaning up Eww source" "cd $HOME && rm -rf eww"
 }
 
+install_rmpcd() {
+    if command -v rmpcd >/dev/null; then
+        echo "rmpcd ya está instalado. Saltando..."
+        return 0
+    fi
+
+    run_network "Instalando rmpcd (companion daemon de rmpc)" "cargo install --git https://github.com/mierak/rmpc.git rmpcd"
+}
+
+
 setup_scripts() {
     run_loader "Executing Hyprland Setup" "bash $HOME/scripts/hypr_setup.sh"
 
@@ -231,6 +241,9 @@ run_network "Installing AUR Packages" "echo '$PASSWORD' | yay -S --needed --noco
 
 # Eww installation
 install_eww
+
+# Instalar rmpcd (daemon MPRIS para rmpc)
+install_rmpcd
 
 # Run Configuration Scripts
 setup_scripts

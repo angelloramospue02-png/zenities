@@ -1,6 +1,6 @@
 # Input
 input {
-    kb_layout = us
+    kb_layout = latam
     kb_variant = #colemak  
     kb_model =
     kb_options =
